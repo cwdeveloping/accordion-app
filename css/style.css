@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f7fa;
+}
+
+.accordion {
+    max-width: 800px;
+    width: 100%;
+    margin: 20px auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.accordion .contentBx {
+    position: relative;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.accordion .contentBx:last-child {
+    border-bottom: none;
+}
+
+.accordion .contentBx .label {
+    position: relative;
+    padding: 15px 20px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.15em;
+    transition: background-color 0.3s, transform 0.3s;
+    border-radius: 8px;
+}
+
+.accordion .contentBx .label:hover {
+    background-color: #0056b3;
+}
+
+.accordion .contentBx .label::after {
+    content: '+';
+    font-size: 1.5em;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.accordion .contentBx.active .label::after {
+    content: '-';
+    transform: rotate(180deg);
+    color: #ffd700;
+}
+
+.accordion .contentBx .content {
+    padding: 0 20px;
+    background-color: #fff;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height .3s ease, opacity 0.6s ease;
+    border-radius: 0 0 8px 8px;
+}
+
+.accordion .contentBx.active .content {
+    padding: 20px;
+    max-height: 500px;
+    opacity: 1;
+}
